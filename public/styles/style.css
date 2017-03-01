@@ -1,0 +1,28 @@
+div {
+    padding-bottom: 2px;
+}
+
+.message {
+    background-color: seashell;
+    padding: 5px 20px 3px 30px;
+    margin-bottom: 5px;
+}
+
+.message footer {
+    font-style: italic;
+}
+
+nav {
+    font-family: 'Merriweather', serif;
+}
+
+div .message{
+    font-family: 'Arsenal', serif;
+    font-size: 14pt;
+}
+
+.jumbothron {
+    font-family: 'Merriweather', serif;
+}
+
+

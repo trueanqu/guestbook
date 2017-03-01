@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Гостевая книга</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Arsenal" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-default navbar-float-top text-center">
+    <h1>Гостевая книга</h1>
+</nav>
+<div class="container-fluid text-center">
+    <div class="jumbothron col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <h2>Добро пожаловать в гостевую книгу!</h2>
+        <p>Оставьте ваше сообщение, используя форму ниже.</p>
+    </div>
+    <form>
+        <div class="form-group col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Имя" required>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                <textarea rows="4" class="form-control" id="message" name="text" placeholder="Сообщение"
+                          required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success btn-block" formaction="newMessage.php" formmethod="GET"><i class="glyphicon glyphicon-send"></i> Отправить
+            </button>
+        </div>
+    </form>
+    <div class="container-fluid col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+        <?php if (!empty($messages)): ?>
+        <?php foreach ($messages as $message): ?>
+        <?php if ($message->name != ''): ?>
+        <div class="message text-justify img-rounded">
+            <header><h4><?php echo $message->name ?></h4></header>
+            <p><?php echo $message->text ?></p>
+            <footer>Дата:&nbsp;<?php echo $message->date ?></footer>
+        </div>
+        <?php endif;?>
+        <?php endforeach; ?>
+        <?php else: ?>
+        <div class="alert alert-warning">
+            К сожалению, сообщений пока нету :(
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+</body>
+</html>
