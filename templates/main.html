@@ -40,8 +40,8 @@
         <?php foreach ($messages as $message): ?>
         <?php if ($message->name != ''): ?>
         <div class="message text-justify img-rounded">
-            <header><h4><?php echo $message->name ?></h4></header>
-            <p><?php echo $message->text ?></p>
+            <header><h3><?php echo $message->name ?></h3></header>
+            <p><hr/><?php echo $message->text ?><hr/></p>
             <footer>Дата:&nbsp;<?php echo $message->date ?></footer>
         </div>
         <?php endif;?>
